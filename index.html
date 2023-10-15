@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio tailwind css</title>
     <link rel="stylesheet" href="dist/output.css" />
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
 
   <body class="overflow-x-hidden">
@@ -15,7 +26,9 @@
       <div class="container">
         <div class="relative flex items-center justify-between">
           <div class="px-4">
-            <a href="#home" class="block py-6 text-xl font-bold text-primary"
+            <a
+              href="#home"
+              class="block py-6 text-xl font-bold text-primary dark:text-white"
               >muzakki</a
             >
           </div>
@@ -38,50 +51,66 @@
             </button>
             <nav
               id="nav-menu"
-              class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"
+              class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:shadow-slate-950 md:dark:bg-slate-800 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-dark lg:dark:bg-transparent"
             >
               <ul class="block lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >Beranda</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#about"
-                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >Tentang Saya</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#portfolio"
-                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >Portfolio</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#clients"
-                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >Clients</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#blog"
-                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >Blog</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#contact"
-                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
                     >Contact</a
                   >
+                </li>
+                <li class="mt-3 flex items-center pl-8 lg:mt-0">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                    <label for="dark-toggle">
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                        ></div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -92,23 +121,27 @@
     <!-- Header end -->
 
     <!-- Hero Section -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="mx-auto w-full self-center px-4 lg:w-1/2">
             <h1 class="text-base font-semibold text-primary md:text-xl">
               Halo Semua 🐣, saya
-              <span class="mt-1 block text-4xl font-bold text-dark lg:text-5xl"
+              <span
+                class="mt-1 block text-4xl font-bold text-dark dark:text-white lg:text-5xl"
                 >Muzakki</span
               >
             </h1>
             <h2 class="mb-5 text-lg font-medium text-secondary lg:text-2xl">
-              Designer | <span class="text-dark">Web Developer</span> |
-              <span class="text-rose-950">Video Editor</span>
+              Designer |
+              <span class="text-dark dark:text-white">Web Developer</span> |
+              <span class="text-rose-950 dark:text-cyan-500">Video Editor</span>
             </h2>
             <p class="mb-10 font-medium leading-relaxed text-secondary">
               Gampang bngt sih belajar sambil menghasilkan uang.
-              <span class="font-bold text-dark">Bercandyaaa.. Bercandya..</span>
+              <span class="font-bold text-dark dark:text-white"
+                >Bercandyaaa.. Bercandya..</span
+              >
             </p>
 
             <a
@@ -123,10 +156,10 @@
                 src="img/miauwW.png"
                 width=""
                 alt="gambar"
-                class="mx-auto max-w-full scale-150"
+                class="relative z-10 mx-auto max-w-full scale-150"
               />
               <span
-                class="md:scale-120 absolute -bottom-0 left-1/2 -z-10 -translate-x-1/2"
+                class="md:scale-120 absolute -bottom-0 left-1/2 -translate-x-1/2"
               >
                 <svg
                   width="400"
@@ -149,14 +182,16 @@
     <!-- Hero Section -->
 
     <!-- about section-->
-    <section id="about" class="p-10 pb-32 md:p-36">
+    <section id="about" class="p-10 pb-32 dark:bg-dark md:p-36">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="mb-10 w-full px-4 sm:p-0 lg:w-1/2">
             <h4 class="mb-3 text-base font-bold uppercase text-primary">
               Tentang Saya
             </h4>
-            <h2 class="mb-5 max-w-md text-2xl font-bold text-dark lg:text-3xl">
+            <h2
+              class="mb-5 max-w-md text-2xl font-bold text-dark dark:text-white lg:text-3xl"
+            >
               Aku adalah
               <span class="text-2xl font-bold text-pink-800 lg:text-3xl"
                 >Yin! dan tidak akan pernah berubah apapun yang terjadi!</span
@@ -169,7 +204,7 @@
           </div>
           <div class="w-full px-4 sm:p-0 lg:w-1/2">
             <h3
-              class="mb-4 text-2xl font-semibold text-dark lg:pt-10 lg:text-3xl"
+              class="mb-4 text-2xl font-semibold text-dark dark:text-white lg:pt-10 lg:text-3xl"
             >
               Mari berteman
             </h3>
@@ -266,13 +301,13 @@
     <!-- about section-->
 
     <!-- Portfolio section -->
-    <section id="portfolio" class="bg-slate-100 pb-16 pt-36">
+    <section id="portfolio" class="bg-slate-100 pb-16 pt-36 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 max-w-xl text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Portfolio</h4>
             <h2
-              class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl"
+              class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl"
             >
               Project Terbaru
             </h2>
@@ -294,7 +329,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="mb-3 mt-5 text-xl font-semibold text-dark">
+            <h3
+              class="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white"
+            >
               Muzakki Landing Page
             </h3>
             <p class="text-base font-medium text-secondary">
@@ -310,7 +347,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="mb-3 mt-5 text-xl font-semibold text-dark">
+            <h3
+              class="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white"
+            >
               Muzakki Merch
             </h3>
             <p class="text-base font-medium text-secondary">
@@ -326,7 +365,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="mb-3 mt-5 text-xl font-semibold text-dark">
+            <h3
+              class="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white"
+            >
               Muzakki Gallery
             </h3>
             <p class="text-base font-medium text-secondary">
@@ -342,7 +383,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="mb-3 mt-5 text-xl font-semibold text-dark">
+            <h3
+              class="mb-3 mt-5 text-xl font-semibold text-dark dark:text-white"
+            >
               Muzakki Photo Manipulation
             </h3>
             <p class="text-base font-medium text-secondary">
@@ -356,13 +399,13 @@
     <!-- Portfolio section -->
 
     <!-- clients section -->
-    <section id="clients" class="bg-slate-800 pb-32 pt-36">
+    <section id="clients" class="bg-slate-800 pb-32 pt-36 dark:bg-slate-700">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Clients</h4>
             <h2
-              class="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
+              class="mb-4 text-3xl font-bold text-white dark:text-dark sm:text-4xl lg:text-5xl"
             >
               Yang Pernah Bekerjasama
             </h2>
@@ -405,13 +448,13 @@
     <!-- clients section -->
 
     <!-- blog section -->
-    <section id="blog" class="bg-slate-100 pb-32 pt-36">
+    <section id="blog" class="bg-slate-100 pb-32 pt-36 dark:bg-dark">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 max-w-xl text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Blog</h4>
             <h2
-              class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl"
+              class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl"
             >
               Tulisan Terkini
             </h2>
@@ -423,7 +466,9 @@
         </div>
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg">
+            <div
+              class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
               <img
                 src="https://source.unsplash.com/362x200?programming"
                 alt="programming"
@@ -433,7 +478,7 @@
                 <h3>
                   <a
                     href="#"
-                    class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary"
+                    class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
                     >Tips Menggunakan VScode
                   </a>
                 </h3>
@@ -451,7 +496,9 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg">
+            <div
+              class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
               <img
                 src="https://source.unsplash.com/361x200?video editor"
                 alt="programming"
@@ -461,7 +508,7 @@
                 <h3>
                   <a
                     href="#"
-                    class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary"
+                    class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
                     >Tutorial Alight Motion
                   </a>
                 </h3>
@@ -479,7 +526,9 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg">
+            <div
+              class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
               <img
                 src="https://source.unsplash.com/360x200?video editor"
                 alt="programming"
@@ -489,7 +538,7 @@
                 <h3>
                   <a
                     href="#"
-                    class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary"
+                    class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
                     >Tips Menggunakan CapCut
                   </a>
                 </h3>
@@ -512,13 +561,13 @@
     <!-- blog section -->
 
     <!-- Contact section -->
-    <section id="contact" class="pb-32 pt-36">
+    <section id="contact" class="pb-32 pt-36 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 max-w-xl text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Contact</h4>
             <h2
-              class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl"
+              class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl"
             >
               Hubungi Saya
             </h2>
